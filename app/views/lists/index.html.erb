@@ -1,0 +1,21 @@
+<div class="banner p-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://unsplash.com/photos/q8P8YoR6erg'); height: 560px">
+  <div class="container">
+    <h1> <strong>Watch List</strong></h1>
+    <p></p>
+    <%= link_to "New List", new_list_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @lists.each do |list| %>
+    <div class="col-4">
+      <div class="card-trip m-3">
+        <%= image_tag 'comedy.jpg', alt: "alttext" %>
+        <div class="card-trip-infos">
+            <h2><%= link_to list.name, list_path(list) %></h2>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

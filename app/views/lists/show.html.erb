@@ -1,0 +1,22 @@
+<div class="banner p-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://unsplash.com/photos/q8P8YoR6erg'); height: 560px">
+  <div class="container">
+    <h1> <strong><%= @list.name %></strong></h1>
+    <p></p>
+    <%= link_to "New Bookmark", new_list_bookmark_path(@list), class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @bookmarks.each do |bookmark| %>
+    <div class="col-4">
+      <div class="card-trip m-3">
+        <%= image_tag 'comedy.jpg', alt: "alttext" %>
+        <div class="card-trip-infos">
+            <h2><%= bookmark.movie.title %></h2>
+            <%= link_to "Delete", bookmark_path(bookmark) , class: "btn btn-warning", method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
